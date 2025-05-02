@@ -1,6 +1,12 @@
 const burger = document.querySelector('.burger');
 const navigation = document.querySelector('.nav');
 const body = document.querySelector('body');
+const modal = document.querySelector('.modal');
+const modalClose = document.querySelectorAll('.modal .close');
+const btnOpenModal = document.querySelectorAll('.btnOpenModal');
+const btnOpenContent = document.querySelectorAll('.btnOpenContent');
+const modalDesc = document.querySelector('.modal-desc');
+const modalForm = document.querySelector('.modal-form');
 
 burger.addEventListener('click', () => {
   burger.classList.toggle('active');
@@ -37,6 +43,13 @@ const offers = new Swiper('.offers .swiper', {
       slidesPerView: 3,
     },
   },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  pagination: {
+    el: '.swiper-pagination',
+  },
 });
 const stage = new Swiper('.stage .swiper', {
   loop: true,
@@ -50,6 +63,13 @@ const stage = new Swiper('.stage .swiper', {
       slidesPerView: 3,
       spaceBetween: 48,
     },
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  pagination: {
+    el: '.swiper-pagination',
   },
 });
 const tariffs = new Swiper('.tariffs .swiper', {
@@ -65,11 +85,50 @@ const tariffs = new Swiper('.tariffs .swiper', {
       slidesPerView: 3,
     },
   },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  pagination: {
+    el: '.swiper-pagination',
+  },
 });
 
 new Accordion('.accordion-container', {
   openOnInit: [0],
   collapse: true,
 });
+if (document.querySelector('[data-fancybox="gallery"]')) {
+  Fancybox.bind('[data-fancybox="gallery"]', {});
+}
+modalDesc.addEventListener('click', (e) => {
+  e.stopPropagation();
+});
+modalForm.addEventListener('click', (e) => {
+  e.stopPropagation();
+});
+modal.addEventListener('click', () => {
+  modal.classList.remove('active');
+  modalForm.classList.remove('active');
+  modalDesc.classList.remove('active');
+});
+btnOpenContent.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    modal.classList.add('active');
+    modalDesc.classList.add('active');
+  });
+});
+btnOpenModal.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    modal.classList.add('active');
+    modalForm.classList.add('active');
+  });
+});
 
-Fancybox.bind('[data-fancybox="gallery"]', {});
+modalClose.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    modal.classList.remove('active');
+    modalForm.classList.remove('active');
+    modalDesc.classList.remove('active');
+  });
+});

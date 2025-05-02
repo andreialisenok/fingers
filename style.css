@@ -111,6 +111,7 @@ svg {
   display: block;
 }
 .btn {
+  width: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -121,25 +122,25 @@ svg {
   font-size: 1.8rem;
   background: var(--white);
   color: var(--dark-red);
-  padding: 10px 0;
+  padding: 10px 50px;
   border: none;
   border-radius: 40px;
   transition: all 0.3s ease-in-out;
-}
-.btn svg {
-  fill: var(--black);
-  transition: all 0.3s ease-in-out;
-}
-.btn:hover svg {
-  fill: var(--white);
+  border: 1px solid transparent;
 }
 .btn:hover {
-  background: var(--pink);
+  background: var(--dark-red);
   color: var(--white);
+  border: 1px solid var(--white);
 }
 .btn--red {
   background: var(--dark-red);
   color: var(--white);
+}
+.btn--red:hover {
+  background: var(--white);
+  color: var(--dark-red);
+  border: 1px solid var(--dark-red);
 }
 .btn--white {
   background: transparent;
@@ -147,10 +148,11 @@ svg {
   text-transform: inherit;
   font-family: 'Circe', sans-serif;
   letter-spacing: normal;
-  font-size: 1.6rem !important;
 }
-.btn--pink {
-  background: var(--pink);
+.btn--white:hover {
+  text-decoration: underline;
+  background: none;
+  border: 1px solid transparent;
   color: var(--black);
 }
 .no-scroll {
@@ -196,9 +198,6 @@ svg {
   padding: 60px 0;
   transform: translateX(-100%);
   transition: all 0.3s ease-in-out;
-}
-.nav .btn {
-  width: 180px;
 }
 .nav.active {
   transform: translateX(0);
@@ -488,9 +487,6 @@ svg {
   object-position: bottom right;
   z-index: -100;
 }
-.masterclass .btn {
-  max-width: 340px;
-}
 .masterclass__row {
   position: relative;
   z-index: 200;
@@ -549,7 +545,7 @@ svg {
   transition: all 0.3s ease-in-out;
 }
 .social a:hover svg {
-  fill: var(--pink);
+  fill: var(--dark-red);
 }
 .offers {
   padding: 20px 0;
@@ -569,12 +565,21 @@ svg {
   text-align: center;
   max-width: 800px;
 }
+.swiper {
+  overflow: visible;
+}
+.offers .swiper {
+  padding-bottom: 50px;
+}
+.tariffs .swiper {
+  padding-bottom: 50px;
+}
 .offers .swiper-slide {
   border-radius: 30px;
   overflow: hidden;
   background: #962b39;
   padding: 20px 20px 40px 20px;
-  transform: scale(0.85);
+  transform: scale(0.9);
   transition: all 250ms linear;
 }
 .offers .swiper-slide-active {
@@ -674,21 +679,21 @@ svg {
   color: var(--white);
   font-size: 1.2rem;
 }
-.reviews .swiper-pagination {
+.swiper-pagination {
   bottom: 20px;
   display: flex;
 }
-.reviews .swiper-pagination-bullet {
+.swiper-pagination-bullet {
   opacity: 1;
   background: #ccc;
   width: 8px;
   height: 8px;
 }
-.reviews .swiper-pagination-bullet-active {
+.swiper-pagination-bullet-active {
   background: var(--black);
 }
-.reviews .swiper-button-next,
-.reviews .swiper-button-prev {
+.swiper-button-next,
+.swiper-button-prev {
   top: auto;
   bottom: 10px;
   width: 30px;
@@ -697,18 +702,18 @@ svg {
   border-radius: 50%;
   z-index: 10000;
 }
-.reviews .swiper-button-next:after,
-.reviews .swiper-button-prev:after {
+.swiper-button-next:after,
+.swiper-button-prev:after {
   content: none;
 }
-.reviews .swiper-button-prev {
+.swiper-button-prev {
   background: url('img/left.svg') no-repeat;
   background-position: center;
   right: 45px;
   left: auto;
 }
 
-.reviews .swiper-button-next {
+.swiper-button-next {
   background: url('img/right.svg') no-repeat;
   background-position: center;
   right: 0;
@@ -753,9 +758,6 @@ svg {
   flex-direction: column;
   align-items: center;
   gap: 10px;
-}
-.content__btns .btn {
-  width: 200px;
 }
 .content__img img {
   max-height: 500px;
@@ -865,14 +867,12 @@ svg {
   color: var(--white);
   background: var(--dark-red);
   font-size: 2rem;
-  padding: 10px;
-  max-width: 200px;
-  width: 100%;
   transition: all 0.3s ease-in-out;
 }
 .form input[type='submit']:hover {
-  color: var(--white);
-  background: var(--pink);
+  color: var(--dark-red);
+  background: var(--white);
+  border: 1px solid var(--dark-red);
 }
 .contacts__img {
   position: relative;
@@ -1076,9 +1076,6 @@ svg {
   font-family: 'Circe', sans-serif;
   font-size: 1.8rem;
 }
-.mc-desc .btn {
-  width: 240px;
-}
 .mc-desc img {
   height: 400px;
   object-fit: cover;
@@ -1087,6 +1084,9 @@ svg {
 .stage {
   padding: 20px 0;
   position: relative;
+}
+.stage .swiper {
+  padding-bottom: 50px;
 }
 .stage::before {
   content: '';
@@ -1167,11 +1167,6 @@ svg {
 .choice > img {
   height: 400px;
   object-fit: cover;
-  width: 100%;
-}
-.choice .btn {
-  max-width: 260px;
-  padding: 10px;
   width: 100%;
 }
 .gallery {
@@ -1283,9 +1278,6 @@ svg {
   height: 24px;
   background-size: contain;
 }
-.tariffs .btn {
-  width: 100%;
-}
 .modal {
   position: fixed;
   left: 0;
@@ -1295,17 +1287,29 @@ svg {
   background: rgba(0, 0, 0, 0.25);
   z-index: 10000;
   padding: 20px;
-  display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
   overflow: hidden;
-}
-.modal-form {
   display: none;
 }
-.modal-desc {
+.modal.active {
   display: flex;
+}
+.modal-form {
+  background: var(--light);
+  padding: 20px;
+  border-radius: 20px;
+}
+.modal-form {
+  position: relative;
+  display: none;
+}
+.modal-form.active {
+  display: block;
+}
+.modal-desc {
+  display: none;
   flex-direction: column;
   gap: 20px;
   background: var(--light);
@@ -1313,6 +1317,9 @@ svg {
   padding: 20px;
   position: relative;
   overflow: hidden;
+}
+.modal-desc.active {
+  display: flex;
 }
 .modal-desc h2 {
   font-size: 2.4rem;
@@ -1323,7 +1330,8 @@ svg {
   font-size: 1.6rem;
   margin-bottom: 24px;
 }
-.modal-desc .close {
+.modal-desc .close,
+.modal-form .close {
   width: 20px;
   height: 20px;
   cursor: pointer;
@@ -1332,7 +1340,8 @@ svg {
   top: 20px;
   border: none;
 }
-.modal-desc .close::before {
+.modal-desc .close::before,
+.modal-form .close::before {
   position: absolute;
   content: '';
   width: 100%;
@@ -1341,7 +1350,8 @@ svg {
   transform: rotate(45deg);
   left: 0;
 }
-.modal-desc .close::after {
+.modal-desc .close::after,
+.modal-form .close::after {
   position: absolute;
   content: '';
   width: 100%;
@@ -1350,6 +1360,7 @@ svg {
   transform: rotate(-45deg);
   left: 0;
 }
+
 .modal-desc img {
   display: none;
 }
@@ -1357,12 +1368,17 @@ svg {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 100%;
-}
-.modal {
-  display: none;
 }
 @media (min-width: 768px) {
+  .modal-form {
+    padding: 40px;
+  }
+  .stage .swiper {
+    padding-bottom: 80px;
+  }
+  .tariffs .swiper {
+    padding-bottom: 100px;
+  }
   .modal-desc__btns {
     align-items: flex-start;
   }
@@ -1370,13 +1386,16 @@ svg {
     font-size: 4.8rem;
   }
   .modal-desc {
-    display: grid;
+    display: none;
     grid-template-columns: 1fr 1fr;
     padding: 30px;
     align-items: center;
     gap: 30px;
     max-width: 1200px;
     min-height: 640px;
+  }
+  .modal-desc.active {
+    display: grid;
   }
   .modal-desc .col:nth-child(2) {
     width: 50%;
@@ -1567,18 +1586,18 @@ svg {
   .burger {
     display: none;
   }
-  .reviews .swiper-pagination {
+  .swiper-pagination {
     bottom: 30px;
   }
-  .reviews .swiper-button-prev {
+  .swiper-button-prev {
     right: 65px;
     left: auto;
   }
   .reviews .swiper {
     padding-bottom: 100px;
   }
-  .reviews .swiper-button-next,
-  .reviews .swiper-button-prev {
+  .swiper-button-next,
+  .swiper-button-prev {
     width: 50px;
     height: 50px;
   }
@@ -1608,7 +1627,21 @@ svg {
     padding: 40px 0;
   }
 }
+
 @media (min-width: 1280px) {
+  .modal-desc__btns {
+    flex-direction: row;
+  }
+  .modal-desc .close,
+  .modal-form .close {
+    width: 40px;
+    height: 40px;
+    right: 30px;
+    top: 30px;
+  }
+  .swiper {
+    overflow: hidden;
+  }
   .hero__row {
     padding: 70px 0;
   }
@@ -1820,6 +1853,22 @@ svg {
   .content {
     padding-bottom: 80px;
     position: relative;
+  }
+  .description::before {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 100;
+    top: -300px;
+    left: 0px;
+    right: 0;
+    bottom: 0;
+    width: 1250px;
+    height: 1350px;
+    background: url(img/square.svg) no-repeat;
+    background-size: contain;
+    z-index: 100;
+    background-position: center;
   }
   .stage::before {
     content: '';

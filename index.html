@@ -46,7 +46,7 @@
                 <a href="contacts.html" class="menu__link">Контакты</a>
               </li>
             </ul>
-            <button type="button" class="btn">Узнать</button>
+            <button type="button" class="btn btnOpenModal">Узнать</button>
           </nav>
           <button type="button" class="burger">
             <span></span>
@@ -163,8 +163,8 @@
             </p>
             <div class="content__btns">
               <a href="#" class="btn btn--red">ЗАПИСАТЬСЯ</a>
-              <a href="#" class="btn btn--white">
-                Все мастер классы
+              <button type="button" class="btn btn--white btnOpenContent">
+                Подробнее
                 <svg
                   width="24"
                   height="24"
@@ -193,8 +193,8 @@
             </p>
             <div class="content__btns">
               <a href="#" class="btn btn--red">ЗАПИСАТЬСЯ</a>
-              <a href="#" class="btn btn--white">
-                Все мастер классы
+              <button type="button" class="btn btn--white btnOpenContent">
+                Подробнее
                 <svg
                   width="24"
                   height="24"
@@ -220,8 +220,8 @@
             <p>Создание уникальных украшений с отпечатками</p>
             <div class="content__btns">
               <a href="#" class="btn btn--red">ЗАПИСАТЬСЯ</a>
-              <a href="#" class="btn btn--white">
-                Все мастер классы
+              <button type="button" class="btn btn--white btnOpenContent">
+                Подробнее
                 <svg
                   width="24"
                   height="24"
@@ -232,7 +232,7 @@
                     d="M9.70697 16.9496L15.414 11.2426L9.70697 5.53564L8.29297 6.94964L12.586 11.2426L8.29297 15.5356L9.70697 16.9496Z"
                   />
                 </svg>
-              </a>
+              </button>
             </div>
           </div>
 
@@ -357,6 +357,9 @@
                   </p>
                 </div>
               </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-pagination"></div>
             </div>
             <a href="#" class="btn btn--red">ЗАПИСАТЬСЯ</a>
           </div>
@@ -446,7 +449,7 @@
               Не упустите шанс создать своё украшение под руководством опытных
               ювелиров. Записывайтесь на мастер-класс!
             </p>
-            <a href="#" class="btn btn--pink">Подробнее о мастер-классах</a>
+            <a href="#" class="btn btn--red">Подробнее о мастер-классах</a>
           </div>
         </div>
       </section>
@@ -541,8 +544,8 @@
           </p>
           <div class="modal-desc__btns">
             <button class="btn btn--red">Записаться сейчас</button
-            ><a href="#" class="btn btn--white">
-              Все мастер классы
+            ><a href="masterclass-one.html" class="btn btn--white">
+              Подробнее
               <svg
                 width="24"
                 height="24"
@@ -582,6 +585,7 @@
           </label>
           <input type="submit" class="btn" placeholder="Отправить" />
         </form>
+        <button class="close"></button>
       </div>
     </div>
     <script src="libs/accordion-js@3.4.0/accordion.min.js"></script>
