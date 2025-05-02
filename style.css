@@ -124,6 +124,18 @@ svg {
   padding: 10px 0;
   border: none;
   border-radius: 40px;
+  transition: all 0.3s ease-in-out;
+}
+.btn svg {
+  fill: var(--black);
+  transition: all 0.3s ease-in-out;
+}
+.btn:hover svg {
+  fill: var(--white);
+}
+.btn:hover {
+  background: var(--pink);
+  color: var(--white);
 }
 .btn--red {
   background: var(--dark-red);
@@ -202,13 +214,39 @@ svg {
   font-size: 1.6rem;
   color: var(--white);
   font-weight: 400;
+  position: relative;
+}
+.menu__link::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  background: var(--white);
+  bottom: 0;
+  transition: all 0.3s ease-in-out;
+}
+.menu__link:hover::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: var(--white);
+  bottom: 0;
+}
+.footer .menu__link:hover::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: var(--black);
+  bottom: 0;
 }
 @keyframes marquee {
-  0% {
-    transform: translate3d(0%, 0, 0);
+  from {
+    transform: translateX(0);
   }
-  100% {
-    transform: translate3d(-100%, 0, 0);
+  to {
+    transform: translateX(-100%);
   }
 }
 
@@ -252,7 +290,7 @@ svg {
   transform: translateX(0);
   font-family: 'Manyfit', sans-serif;
   color: var(--white);
-  animation: marquee 1s linear infinite;
+  animation: marquee 3s linear infinite;
   padding: 0 10px;
 }
 @keyframes marquee {
@@ -506,6 +544,13 @@ svg {
   display: flex;
   gap: 12px;
 }
+.social a svg {
+  fill: var(--black);
+  transition: all 0.3s ease-in-out;
+}
+.social a:hover svg {
+  fill: var(--pink);
+}
 .offers {
   padding: 20px 0;
 }
@@ -671,6 +716,19 @@ svg {
 .content {
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+.content::before {
+  content: '';
+  position: absolute;
+  background: url('img/square.svg');
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0px;
+  z-index: -100;
 }
 .content__item {
   display: flex;
@@ -810,6 +868,11 @@ svg {
   padding: 10px;
   max-width: 200px;
   width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+.form input[type='submit']:hover {
+  color: var(--white);
+  background: var(--pink);
 }
 .contacts__img {
   position: relative;
@@ -1023,6 +1086,17 @@ svg {
 }
 .stage {
   padding: 20px 0;
+  position: relative;
+}
+.stage::before {
+  content: '';
+  position: absolute;
+  background: url('img/square.svg');
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  top: 0px;
+  z-index: -100;
 }
 .stage h2 {
   font-size: 2.4rem;
@@ -1212,7 +1286,111 @@ svg {
 .tariffs .btn {
   width: 100%;
 }
+.modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 10000;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  overflow: hidden;
+}
+.modal-form {
+  display: none;
+}
+.modal-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: var(--light);
+  border-radius: 30px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.modal-desc h2 {
+  font-size: 2.4rem;
+  margin-bottom: 24px;
+}
+.modal-desc p {
+  font-family: 'Circe', sans-serif;
+  font-size: 1.6rem;
+  margin-bottom: 24px;
+}
+.modal-desc .close {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  border: none;
+}
+.modal-desc .close::before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: var(--black);
+  transform: rotate(45deg);
+  left: 0;
+}
+.modal-desc .close::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: var(--black);
+  transform: rotate(-45deg);
+  left: 0;
+}
+.modal-desc img {
+  display: none;
+}
+.modal-desc__btns {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+.modal {
+  display: none;
+}
 @media (min-width: 768px) {
+  .modal-desc__btns {
+    align-items: flex-start;
+  }
+  .modal-desc h2 {
+    font-size: 4.8rem;
+  }
+  .modal-desc {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 30px;
+    align-items: center;
+    gap: 30px;
+    max-width: 1200px;
+    min-height: 640px;
+  }
+  .modal-desc .col:nth-child(2) {
+    width: 50%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+  .modal-desc img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
   .tariffs {
     padding: 40px 0;
   }
@@ -1431,6 +1609,9 @@ svg {
   }
 }
 @media (min-width: 1280px) {
+  .hero__row {
+    padding: 70px 0;
+  }
   .tariffs .swiper-slide span:first-child {
     font-size: 2.4rem;
   }
@@ -1575,10 +1756,10 @@ svg {
     font-size: 4.5rem;
   }
   .about {
-    padding: 80px 0;
+    padding: 100px 0;
   }
   .studio {
-    padding: 80px 0;
+    padding: 100px 0;
   }
   .contacts__map iframe {
     height: 600px;
@@ -1640,6 +1821,18 @@ svg {
     padding-bottom: 80px;
     position: relative;
   }
+  .stage::before {
+    content: '';
+    position: absolute;
+    background: url('img/square.svg');
+    width: 1250px;
+    height: 1350px;
+    background-size: cover;
+    top: 0px;
+    margin: 0 auto;
+    transform: none;
+    z-index: -100;
+  }
   .content::before {
     content: '';
     position: absolute;
@@ -1649,6 +1842,7 @@ svg {
     background-size: cover;
     top: 600px;
     right: -350px;
+    transform: none;
   }
   .content__box {
     padding: 100px;
