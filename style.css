@@ -138,7 +138,7 @@ svg {
   color: var(--white);
 }
 .btn--red:hover {
-  background: var(--white);
+  background: var(--light);
   color: var(--dark-red);
   border: 1px solid var(--dark-red);
 }
@@ -289,18 +289,9 @@ svg {
   transform: translateX(0);
   font-family: 'Manyfit', sans-serif;
   color: var(--white);
-  animation: marquee 3s linear infinite;
+  animation: marquee 1s linear infinite;
   padding: 0 10px;
 }
-@keyframes marquee {
-  0% {
-    transform: translate3d(0%, 0, 0);
-  }
-  100% {
-    transform: translate3d(-100%, 0, 0);
-  }
-}
-
 .hero__row {
   padding: 30px 0;
 }
@@ -764,9 +755,6 @@ svg {
   width: 100%;
   object-fit: cover;
   object-position: bottom;
-}
-.content {
-  padding-bottom: 20px;
 }
 .content__box > img {
   display: none;
@@ -1370,6 +1358,12 @@ svg {
   gap: 10px;
 }
 @media (min-width: 768px) {
+  .offers .swiper-slide {
+    min-height: 380px;
+  }
+  .offers .swiper-slide-active {
+    min-height: 400px;
+  }
   .modal-form {
     padding: 40px;
   }
@@ -1544,9 +1538,6 @@ svg {
     left: -200px;
     top: -10%;
     transform: translateY(-50%);
-  }
-  .content {
-    padding-bottom: 40px;
   }
   .content__btns {
     flex-direction: row;
@@ -1851,7 +1842,6 @@ svg {
     top: -10%;
   }
   .content {
-    padding-bottom: 80px;
     position: relative;
   }
   .description::before {
